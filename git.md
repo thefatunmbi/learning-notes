@@ -1,154 +1,211 @@
 # Git Cheat Sheet
 
-## Configure Git
+## Git vs GitHub
 
-git config --global user.name "David Fatunmbi"
-
-* Set my commit author name.
-
----
-
-git config --global user.email "my-noreply-email"
-
-* Set my commit email.
-
----
-
-git config --global --list
-
-* View Git settings.
-
----
-
-## Repository Basics
-
-git init
-
-* Create a new Git repository.
-
----
-
-git clone URL
-
-* Download a repository from GitHub.
-
-Example:
-git clone https://github.com/user/project.git
-
----
-
-## Checking Status
-
-git status
-
-* Show changed, staged, and untracked files.
-
-This is the command I should use most often.
-
----
-
-## Staging Files
-
-git add file.txt
-
-* Stage one file.
-
----
-
-git add .
-
-* Stage all changes.
-
----
-
-## Committing
-
-git commit -m "message"
-
-* Save a snapshot of staged changes.
-
-Example:
-git commit -m "Add homepage"
-
----
-
-## Viewing History
-
-git log
-
-* Show commit history.
-
----
-
-git log --oneline
-
-* Compact commit history.
-
----
-
-## GitHub
-
-git remote -v
-
-* Show connected GitHub repository.
-
----
-
-git push origin main
-
-* Upload commits to GitHub.
+* **Git** = version control software on my computer.
+* **GitHub** = stores Git repositories online.
 
 Think:
-push = local → GitHub
 
----
-
-git pull origin main
-
-* Download updates from GitHub.
-
-Think:
-pull = GitHub → local
-
----
-
-## Typical Workflow
-
-1. git status
-2. git add .
-3. git commit -m "Describe changes"
-4. git push origin main
-
-Repeat every time I finish a piece of work.
-
-
-
-One more thing to jot down
-
-Git vs GitHub
-
-Git = version control software on your computer.
-GitHub = website that stores Git repositories online. GitHub
-
-Think of it like:
-
+```text
 Git     = notebook
-GitHub  = cloud backup for the notebook
+GitHub  = cloud backup
+```
 
 ---
 
-git clone means
+## My Repository Structure
 
-"Make a copy of a Git repository from somewhere else onto my computer."
+```text
+~/repos
+├── learning-notes
+└── learning
+```
 
-Think of it as downloading a project with its entire Git history.
+* **learning-notes** → notes (Git, Linux, HTML, CSS, JavaScript)
+* **learning** → Odin Project exercises
 
-Example
+---
 
-Suppose you have a repository on GitHub:
+## Creating a New Repository (Odin Method)
 
-https://github.com/thefatunmbi/learning-notes
+1. Create repository on GitHub.
+2. Clone it:
 
-You can copy it to your computer with:
+```bash
+cd ~/repos
+git clone git@github.com:USERNAME/REPOSITORY.git
+```
 
-git clone https://github.com/thefatunmbi/learning-notes.git
+3. Enter it:
+
+```bash
+cd REPOSITORY
+```
+
+`git clone` automatically connects the local repository to GitHub.
+
+---
+
+## Daily Workflow
+
+Check status:
+
+```bash
+git status
+```
+
+Stage changes:
+
+```bash
+git add .
+```
+
+Commit:
+
+```bash
+git commit -m "Meaningful message"
+```
+
+Push to GitHub:
+
+```bash
+git push
+```
+
+Workflow:
+
+```text
+git status
+git add .
+git commit -m "message"
+git push
+```
+
+---
+
+## Useful Git Commands
+
+```bash
+git status        # Check repository status
+git log           # View commit history
+git log --oneline # Compact history
+git remote -v     # Show connected GitHub repo
+git pull          # Download updates
+git push          # Upload updates
+```
+
+---
+
+## Useful Terminal Commands
+
+```bash
+pwd        # Show current folder
+ls         # List files/folders
+cd folder  # Enter folder
+cd ..      # Go up one level
+cd ~       # Go home
+mkdir name # Create folder
+touch file # Create file
+code .     # Open current folder in VS Code
+```
+
+---
+
+## Important Notes
+
+* `git clone` = download an existing GitHub repository.
+* `git init` = create a local Git repository.
+* I normally use the Odin workflow: **GitHub → Clone → Work → Commit → Push**.
+* I only clone a repository once.
+* Most of the time I only need:
+
+```bash
+git status
+git add .
+git commit -m "message"
+git push
+
+# Good Git Commit Messages
+
+## Rule
+
+A commit message should clearly describe **what changed**.
+
+---
+
+## Format
+
+Use **imperative mood** (as a command):
+
+```text id="c1"
+Add homepage
+Fix navigation links
+Create images folder
+Update README
+Remove unused code
+```
+
+Think:
+
+> “This commit will… Add / Fix / Create / Update / Remove”
+
+---
+
+## Good Commit Messages
+
+* Add links and images lesson
+* Create HTML boilerplate
+* Add About page
+* Update Git notes
+* Fix broken image path
+* Move pages into pages directory
+* Complete links and images lesson
+
+---
+
+## Bad Commit Messages
+
+Avoid vague messages like:
+
+* update
+* changes
+* fixed stuff
+* done
+* work
+* new commit
+
+---
+
+## Atomic Commits
+
+Each commit should represent **one logical change**.
+
+Example:
+
+Instead of one big commit:
+
+```text id="c2"
+Update website
+```
+
+Do separate commits:
+
+```text id="c3"
+Add About page
+Fix navigation links
+Add images
+Update README
+```
+
+---
+
+## Quick Rule
+
+Before committing, ask:
+
+> “What exactly did I change?”
+
+Then write that as a short action sentence starting with a verb.
+
+```
