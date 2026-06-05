@@ -1,10 +1,6 @@
 # CSS Fundamentals
 
-## What is CSS?
-
-CSS (Cascading Style Sheets) is used to style HTML elements.
-
-Basic syntax:
+## CSS Syntax
 
 ```css
 selector {
@@ -22,141 +18,69 @@ p {
 
 ---
 
-## Common Selectors
+## Selectors
 
 ### Universal Selector
 
-Selects every element:
-
 ```css
-* {
-  color: purple;
-}
+* {}
 ```
+
+Selects all elements.
 
 ### Type Selector
 
-Selects all elements of a type:
-
 ```css
-div {
-  color: white;
-}
+div {}
 ```
+
+Selects all elements of a type.
 
 ### Class Selector
 
-HTML:
-
-```html
-<div class="alert-text"></div>
-```
-
-CSS:
-
 ```css
-.alert-text {
-  color: red;
-}
+.alert {}
 ```
 
 * Starts with `.`
-* Can be used on multiple elements
-* Can have multiple classes:
-
-```html
-<div class="alert-text severe-alert"></div>
-```
+* Reusable on multiple elements
 
 ### ID Selector
 
-HTML:
-
-```html
-<div id="title"></div>
-```
-
-CSS:
-
 ```css
-#title {
-  color: red;
-}
+#title {}
 ```
 
 * Starts with `#`
 * Should be unique on a page
-* Use sparingly
 
----
-
-## Grouping Selectors
-
-Apply the same styles to multiple selectors:
+### Grouping Selectors
 
 ```css
 .read,
-.unread {
-  color: white;
-}
+.unread {}
 ```
 
----
+Apply the same styles to multiple selectors.
 
-## Chaining Selectors
-
-Select elements that have multiple classes:
+### Chaining Selectors
 
 ```css
-.subsection.header {
-  color: red;
-}
+.subsection.header {}
 ```
 
-Selects elements with BOTH classes.
-
-### Combining a Class and an ID
-
-HTML:
-
-```html
-<p class="subsection" id="preview">
-  Hello World
-</p>
-```
-
-CSS:
+Selects elements with both classes.
 
 ```css
-.subsection#preview {
-  color: blue;
-}
+.subsection#preview {}
 ```
 
-This selects an element that has:
+Selects an element with both the class and ID.
 
-* class = `subsection`
-* id = `preview`
-
-Both must be present for the rule to apply.
-
-Remember:
-
-* `.` = class
-* `#` = id
-* No space between them when chaining selectors.
-
-
----
-
-## Descendant Combinator
-
-Select nested elements:
+### Descendant Combinator
 
 ```css
-.ancestor .child {
-  color: blue;
-}
+.ancestor .child {}
 ```
 
 Selects `.child` only if it is inside `.ancestor`.
@@ -165,96 +89,69 @@ Selects `.child` only if it is inside `.ancestor`.
 
 ## Common Properties
 
-### Colors
-
 ```css
-color: red;
-background-color: black;
+color
+background-color
+font-family
+font-size
+font-weight
+text-align
+width
+height
 ```
 
-### Typography
+---
 
-```css
-font-family: Arial, sans-serif;
-font-size: 22px;
-font-weight: bold;
-text-align: center;
-```
-
-### Images
-
-Maintain proportions:
+## Images
 
 ```css
 img {
   width: 500px;
   height: auto;
 }
+```
 
+* Use `auto` to keep image proportions.
+* Include `width` and `height` attributes in HTML to prevent layout shifts while images load.
 
 ---
 
 ## Adding CSS to HTML
 
-### 1. External CSS (Recommended)
+### External CSS (Recommended)
 
-HTML:
-
-html
+```html
 <link rel="stylesheet" href="styles.css">
-
-CSS:
-
-css
-p {
-  color: red;
-}
 ```
 
-Advantages:
-
 * Keeps HTML clean
-* Reusable across multiple pages
+* Reusable across pages
 
-### 2. Internal CSS
+### Internal CSS
 
 ```html
 <style>
-  p {
-    color: red;
-  }
+  p { color: red; }
 </style>
 ```
 
-Used for styles specific to one page.
+Used for a single page.
 
-### 3. Inline CSS
+### Inline CSS
 
 ```html
 <p style="color:red;">Hello</p>
 ```
 
-Avoid when possible because it becomes messy and overrides other CSS.
+Avoid when possible.
 
 ---
 
 ## Key Takeaways
 
-* CSS styles HTML.
-* Class selector = `.class-name`
-* ID selector = `#id-name`
-* Group selectors with commas.
-* Chain selectors without spaces.
-* Descendant combinator uses a space.
-* External CSS is the preferred method.
-* Most-used properties:
-
-  * color
-  * background-color
-  * font-family
-  * font-size
-  * font-weight
-  * text-align
-  * width
-  * height
-
+* `.` = Class
+* `#` = ID
+* `,` = Group selectors
+* No space = Chain selectors
+* Space = Descendant combinator
+* External CSS is preferred
