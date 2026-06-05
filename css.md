@@ -115,6 +115,38 @@ Select elements that have multiple classes:
 
 Selects elements with BOTH classes.
 
+### Combining a Class and an ID
+
+HTML:
+
+```html
+<p class="subsection" id="preview">
+  Hello World
+</p>
+```
+
+CSS:
+
+```css
+.subsection#preview {
+  color: blue;
+}
+```
+
+This selects an element that has:
+
+* class = `subsection`
+* id = `preview`
+
+Both must be present for the rule to apply.
+
+Remember:
+
+* `.` = class
+* `#` = id
+* No space between them when chaining selectors.
+
+
 ---
 
 ## Descendant Combinator
@@ -158,7 +190,7 @@ img {
   width: 500px;
   height: auto;
 }
-```
+
 
 ---
 
@@ -168,13 +200,12 @@ img {
 
 HTML:
 
-```html
+html
 <link rel="stylesheet" href="styles.css">
-```
 
 CSS:
 
-```css
+css
 p {
   color: red;
 }
@@ -227,5 +258,3 @@ Avoid when possible because it becomes messy and overrides other CSS.
   * width
   * height
 
-```
-```
