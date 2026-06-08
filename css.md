@@ -8,82 +8,27 @@ selector {
 }
 ```
 
-Example:
-
-```css
-p {
-  color: red;
-}
-```
-
 ---
 
 ## Selectors
 
-### Universal Selector
-
 ```css
-* {}
+*           /* Universal */
+div         /* Type */
+.class      /* Class */
+#id         /* ID */
+.a, .b      /* Grouping */
+.a.b        /* Chaining */
+.parent .child /* Descendant */
 ```
 
-Selects all elements.
+### Remember
 
-### Type Selector
-
-```css
-div {}
-```
-
-Selects all elements of a type.
-
-### Class Selector
-
-```css
-.alert {}
-```
-
-* Starts with `.`
-* Reusable on multiple elements
-
-### ID Selector
-
-```css
-#title {}
-```
-
-* Starts with `#`
-* Should be unique on a page
-
-### Grouping Selectors
-
-```css
-.read,
-.unread {}
-```
-
-Apply the same styles to multiple selectors.
-
-### Chaining Selectors
-
-```css
-.subsection.header {}
-```
-
-Selects elements with both classes.
-
-```css
-.subsection#preview {}
-```
-
-Selects an element with both the class and ID.
-
-### Descendant Combinator
-
-```css
-.ancestor .child {}
-```
-
-Selects `.child` only if it is inside `.ancestor`.
+* `.` = Class
+* `#` = ID
+* `,` = Group selectors (OR)
+* No space = Chain selectors (AND)
+* Space = Descendant combinator
 
 ---
 
@@ -111,124 +56,79 @@ img {
 }
 ```
 
-* Use `auto` to keep image proportions.
-* Include `width` and `height` attributes in HTML to prevent layout shifts while images load.
+* `auto` keeps image proportions.
+* Include `width` and `height` attributes in HTML to prevent layout shifts.
 
 ---
 
-## Adding CSS to HTML
+## Adding CSS
 
-### External CSS (Recommended)
+### External (Recommended)
 
 ```html
 <link rel="stylesheet" href="styles.css">
 ```
 
-* Keeps HTML clean
-* Reusable across pages
-
-### Internal CSS
+### Internal
 
 ```html
-<style>
-  p { color: red; }
-</style>
+<style></style>
 ```
 
-Used for a single page.
-
-### Inline CSS
+### Inline
 
 ```html
-<p style="color:red;">Hello</p>
-```
-
-Avoid when possible.
-
----
-
-## Key Takeaways
-
-* `.` = Class
-* `#` = ID
-* `,` = Group selectors
-* No space = Chain selectors
-* Space = Descendant combinator
-* External CSS is preferred
-
-
-Here’s a clean, short note you can paste into your `css.md`:
-
----
-
-# 📦 CSS Box Model
-
-The CSS Box Model describes how every HTML element is structured as a rectangular box made up of:
-
-* **Content** – the actual text or image
-* **Padding** – space between content and border
-* **Border** – line around the padding/content
-* **Margin** – space outside the element (distance from other elements)
-
-```text id="boxmodel1"
-margin → border → padding → content → padding → border → margin
+style=""
 ```
 
 ---
 
-## 📏 Box Sizing
+# Box Model
 
-`box-sizing` controls how the total width and height of an element is calculated.
+Every element consists of:
 
-### Default behavior:
+```text
+Margin → Border → Padding → Content
+```
 
-```css id="boxmodel2"
+* Content = actual content
+* Padding = space inside border
+* Border = outline around element
+* Margin = space outside element
+
+---
+
+## Box Sizing
+
+### Default
+
+```css
 box-sizing: content-box;
 ```
 
-* Width and height apply ONLY to content
-* Padding and border are added outside, increasing total size
+Width/height apply only to content.
 
----
+### Recommended
 
-### Recommended setting:
-
-```css id="boxmodel3"
+```css
 box-sizing: border-box;
 ```
 
-* Width and height include padding and border
-* Makes layout easier and more predictable
+Width/height include padding and border.
 
----
+Global reset:
 
-## 💡 Best Practice
-
-Most developers reset box sizing globally:
-
-```css id="boxmodel4"
+```css
 * {
   box-sizing: border-box;
 }
 ```
 
-This prevents unexpected layout issues and makes sizing consistent across all elements.
-
----
-
-You're talking about **margin collapsing**.
-
-Here's a short note for your `css.md`:
-
 ---
 
 ## Margin Collapsing
 
-When two vertical margins touch, they do **not add together**.
-
-Instead, the browser uses the **larger margin value** and ignores the smaller one.
-
-Example:
+Vertical margins do not add together.
 
 ```css
 .box1 {
@@ -240,28 +140,6 @@ Example:
 }
 ```
 
-The space between the boxes will be:
+Space between boxes = `50px`, not `70px`.
 
-```text
-50px
-```
-
-not:
-
-```text
-70px
-```
-
-This behavior is called **margin collapsing** and only occurs with vertical margins (`margin-top` and `margin-bottom`).
-
----
-
-### Key Takeaway
-
-* Vertical margins can collapse.
-* The larger margin wins.
-* Margins do not stack vertically like padding does.
-
-
-
-
+**Rule:** The larger vertical margin wins.
