@@ -216,4 +216,52 @@ This prevents unexpected layout issues and makes sizing consistent across all el
 
 ---
 
+You're talking about **margin collapsing**.
+
+Here's a short note for your `css.md`:
+
+---
+
+## Margin Collapsing
+
+When two vertical margins touch, they do **not add together**.
+
+Instead, the browser uses the **larger margin value** and ignores the smaller one.
+
+Example:
+
+```css
+.box1 {
+  margin-bottom: 50px;
+}
+
+.box2 {
+  margin-top: 20px;
+}
+```
+
+The space between the boxes will be:
+
+```text
+50px
+```
+
+not:
+
+```text
+70px
+```
+
+This behavior is called **margin collapsing** and only occurs with vertical margins (`margin-top` and `margin-bottom`).
+
+---
+
+### Key Takeaway
+
+* Vertical margins can collapse.
+* The larger margin wins.
+* Margins do not stack vertically like padding does.
+
+
+
 
