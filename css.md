@@ -13,12 +13,12 @@ selector {
 ## Selectors
 
 ```css
-*           /* Universal */
-div         /* Type */
-.class      /* Class */
-#id         /* ID */
-.a, .b      /* Grouping */
-.a.b        /* Chaining */
+*              /* Universal */
+div            /* Type */
+.class         /* Class */
+#id            /* ID */
+.a, .b         /* Grouping */
+.a.b           /* Chaining */
 .parent .child /* Descendant */
 ```
 
@@ -56,8 +56,8 @@ img {
 }
 ```
 
-* `auto` keeps image proportions.
-* Include `width` and `height` attributes in HTML to prevent layout shifts.
+* `auto` keeps image proportions
+* Always set `width` and `height` in HTML to prevent layout shift
 
 ---
 
@@ -85,7 +85,7 @@ style=""
 
 # Box Model
 
-Every element consists of:
+Every element is a rectangular box made of:
 
 ```text
 Margin → Border → Padding → Content
@@ -106,7 +106,7 @@ Margin → Border → Padding → Content
 box-sizing: content-box;
 ```
 
-Width/height apply only to content.
+Width and height apply only to content.
 
 ### Recommended
 
@@ -114,9 +114,9 @@ Width/height apply only to content.
 box-sizing: border-box;
 ```
 
-Width/height include padding and border.
+Width and height include padding and border.
 
-Global reset:
+### Global Reset
 
 ```css
 * {
@@ -140,6 +140,60 @@ Vertical margins do not add together.
 }
 ```
 
-Space between boxes = `50px`, not `70px`.
+Space between boxes = **50px**, not 70px.
 
-**Rule:** The larger vertical margin wins.
+> The larger vertical margin wins.
+
+---
+
+# Display: Block, Inline, Inline-Block
+
+## Block
+
+* Takes full width
+* Starts on a new line
+* Width, height, margin, padding work normally
+
+---
+
+## Inline
+
+* Takes only needed space
+* Stays on same line
+* Cannot set width/height properly
+
+---
+
+## Inline-Block
+
+* Stays on same line like inline
+* Supports width and height like block
+* Useful for buttons and nav items
+
+---
+
+## Key Difference
+
+* **Block** → new line, full box
+* **Inline** → same line, text flow
+* **Inline-block** → inline + controllable box
+
+---
+
+## Why Inline-Block is Useful
+
+Inline elements like `<a>` behave like text, so padding doesn’t create a good clickable area.
+
+By using `inline-block`, you can improve usability:
+
+```css
+a {
+  display: inline-block;
+  padding: 10px 15px;
+}
+```
+
+Now the entire padded area becomes clickable, making it better for buttons and navigation links.
+
+---
+
