@@ -195,5 +195,96 @@ a {
 
 Now the entire padded area becomes clickable, making it better for buttons and navigation links.
 
+
+
+
 ---
 
+## Flexbox: Grow, Shrink, and Basis
+
+### flex-grow
+
+Controls how much a flex item grows when there is extra space in the container.
+
+```css
+flex-grow: 1;
+```
+
+Items with the same grow value share extra space equally.
+
+---
+
+### flex-shrink
+
+Controls how much a flex item shrinks when there is not enough space.
+
+```css
+flex-shrink: 1;
+```
+
+By default, flex items can shrink to fit the container.
+
+---
+
+### flex-basis
+
+Sets the starting size of a flex item before growing or shrinking occurs.
+
+```css
+flex-basis: 200px;
+```
+
+The item starts at 200px, then Flexbox adjusts it if needed.
+
+---
+
+### flex: 1
+
+```css
+flex: 1;
+```
+
+Shorthand for:
+
+```css
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 0;
+```
+
+Meaning:
+
+* Grow if extra space exists
+* Shrink if space is limited
+* Ignore natural size and share space evenly
+
+---
+
+### flex: auto
+
+```css
+flex: auto;
+```
+
+Shorthand for:
+
+```css
+flex-grow: 1;
+flex-shrink: 1;
+flex-basis: auto;
+```
+
+Meaning:
+
+* Keep natural size first
+* Then grow or shrink as needed
+
+---
+
+### Quick Rule
+
+* `flex: 1` → Equal space distribution
+* `flex: auto` → Keep natural size, then adjust
+* `flex-grow` → Extra space
+* `flex-shrink` → Not enough space
+* `flex-basis` → Starting size
