@@ -288,3 +288,35 @@ Meaning:
 * `flex-grow` → Extra space
 * `flex-shrink` → Not enough space
 * `flex-basis` → Starting size
+
+
+## Flexbox Alignment
+
+### `justify-content`
+
+Aligns flex items along the **main axis**.
+
+### `align-items`
+
+Aligns flex items along the **cross axis**.
+
+### Main vs Cross Axis
+
+```text
+flex-direction: row
+
+Main Axis  → (justify-content)
+Cross Axis ↓ (align-items)
+```
+
+```text
+flex-direction: column
+
+Main Axis  ↓ (justify-content)
+Cross Axis → (align-items)
+```
+
+### Note
+
+`justify-items` is **not used in Flexbox**. It is mainly used with **CSS Grid**.
+
